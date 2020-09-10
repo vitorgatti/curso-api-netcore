@@ -4,9 +4,11 @@ using System.Threading.Tasks;
 using Api.Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Mvc;
 using Api.Domain.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Application.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase

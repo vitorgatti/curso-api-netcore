@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Api.Domain.Interfaces.Services.User;
 using System.Threading.Tasks;
 using Api.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Application.Controllers
 {
+    [Authorize("Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
