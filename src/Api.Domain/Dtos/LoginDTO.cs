@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Api.Domain.Dtos
 {
-    public class LoginDTO
+    public class LoginDto
     {
         [Required(ErrorMessage = "É obrigatório informar o e-mail para realizar o login.")]
         [EmailAddress(ErrorMessage = "Email informado inválido.")]

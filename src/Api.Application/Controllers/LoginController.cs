@@ -14,7 +14,7 @@ namespace Api.Application.Controllers
     public class LoginController : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] LoginDTO loginDto, [FromServices] ILoginService service)
+        public async Task<IActionResult> Login([FromBody] LoginDto loginDto, [FromServices] ILoginService service)
         {
             if (!ModelState.IsValid)
             {
