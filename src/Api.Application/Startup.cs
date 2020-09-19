@@ -14,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
 using Api.CrossCutting.Mappings;
 using AutoMapper;
+using Api.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace application
 {
@@ -127,6 +129,20 @@ namespace application
             {
                 endpoints.MapControllers();
             });
+
+            ExecuteMigrations(app);
+        }
+
+        public void ExecuteMigrations(IApplicationBuilder app)
+        {
+            using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
+                                                        .CreateScope())
+            {
+                using (var context = service.ServiceProvider.GetService<MyContext>())
+                {
+                    context.Database.Migrate();
+                }
+            };
         }
     }
 }
